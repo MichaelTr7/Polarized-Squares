@@ -1,0 +1,132 @@
+
+:root{
+  --Canvas_Colour: pink;
+  --Navigation_Bar_Height: 3rem;
+  font-size: 1em;
+}
+
+html{
+  height: 100%;
+  width: 100%;
+}
+
+body{
+  margin: 0;
+  background-color: var(--Canvas_Colour);
+}
+
+#Canvas{
+  position: relative;
+  top: 0;
+  left: 0;
+  height: 0;
+  width: 0;
+  background-color: var(--Canvas_Colour);
+}
+
+#Navigation_Bar{
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: var(--Navigation_Bar_Height);
+  width: 100%;
+  z-index: 2;
+  list-style-type: none;
+  background-color: rgb(30,30,30);
+}
+
+#Navigation_Bar > li{
+  font-family: Helvetica;
+  font-size: 1.5rem;
+  height: 100%;
+  text-decoration: none;
+  text-align: center;
+  border: var(--Border) solid white;
+}
+
+#Navigation_Bar > li:nth-of-type(1){
+  float: left;
+  margin-left: 1rem;
+  width: 12rem;
+}
+
+#Navigation_Bar > li:not(:nth-of-type(1)){
+  float: right;
+  width: 10rem;
+}
+
+#Navigation_Bar > li:nth-last-of-type(1){
+  display: none;
+  float: right;
+  width: var(--Navigation_Bar_Height);
+  margin-right: 0.5rem;
+}
+
+
+#Navigation_Bar > li > button,#Navigation_Bar > div > li > button{
+  height: 100%;
+  width: 100%;
+  font-size: 0.8rem;
+  border: none;
+  color: white;
+  font-family: Helvetica;
+  background-color: rgba(0,0,0,0);
+}
+
+#Navigation_Bar > div > li > button:hover{
+  background-color: rgba(255,255,255,0.2);
+}
+
+#Navigation_Bar > li > button:hover,#Navigation_Bar > div > li > button:hover{
+  cursor: pointer;
+}
+
+#Name{
+  fill: white;
+}
+
+
+#Navigation_Bar > li > button{
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+#Navigation_Bar > div > li > button{
+  position: relative;
+  width: 5rem;
+}
+
+#Centre_Nav_Buttons{
+  position: absolute;
+  display: flex;
+  height: 100%;
+  --Width: 10rem;
+  width: var(--Width);
+  left: calc(50% - var(--Width)/2);
+  background-color: none;
+}
+
+#Menu_Symbol{
+  fill: white;
+}
+
+#Rectangle_Outline {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  transition: 1s;
+}
+
+#Logo:hover > #Rectangle_Outline{
+  stroke-dashoffset: 500;
+}
+
+@media only screen and (max-width: 700px) {
+  #Navigation_Bar > li:not(:nth-of-type(1)){
+    display: block;
+  }
+  #Navigation_Bar > div{
+    display: none;
+  }
+}
+
+
