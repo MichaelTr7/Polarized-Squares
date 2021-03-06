@@ -74,7 +74,7 @@ body{
 }
 
 #Navigation_Bar > div > li > button:hover{
-  background-color: rgba(255,255,255,0.2);
+  /* background-color: rgba(255,255,255,0.2); */
 }
 
 #Navigation_Bar > li > button:hover,#Navigation_Bar > div > li > button:hover{
@@ -93,7 +93,14 @@ body{
 
 #Navigation_Bar > div > li > button{
   position: relative;
+  --Margin: 0.5rem;
+  top: var(--Margin);
+  height: calc(var(--Navigation_Bar_Height) - 2*var(--Margin));
   width: 5rem;
+  background-image: url('../Assets/Box_Decals.svg');
+  background-size: 20% 20%;
+  background-repeat: no-repeat;
+  overflow: hidden;
 }
 
 #Centre_Nav_Buttons{
@@ -118,6 +125,22 @@ body{
 
 #Logo:hover > #Rectangle_Outline{
   stroke-dashoffset: 500;
+}
+
+.Bar{ 
+  position: absolute;
+  --Height: 0.034rem;
+  --Width: 100%;
+  top: calc(90% - var(--Height));
+  left: -100%;
+  height: var(--Height);
+  width: var(--Width);
+  background-color: white;
+  transition: 0.2s;
+}
+
+#Navigation_Bar > div > li > button:hover > .Bar{
+  transform: translateX(100%);
 }
 
 @media only screen and (max-width: 700px) {
