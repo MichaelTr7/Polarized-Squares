@@ -2,6 +2,8 @@
 :root{
   --Colour_Panel_Animation_Direction: forwards;
   --Add_Panel_Animation_Direction: forwards;
+  --Hue_Colour: blue;
+  --Gray_Tone_Text: rgb(170,170,170);
 }
 
 
@@ -41,7 +43,8 @@
   width: var(--Small_Diameter);
   border: var(--Border_Thickness) solid white;
   border-radius: calc(var(--Small_Diameter)/2);
-  background-color: cyan;
+  background-color: var(--Gray_Tone_Text);
+  z-index: 10;
 }
 
 #Canvas_Colour_Button{
@@ -71,16 +74,335 @@
 @keyframes Expand_Keyframes_1 {
   to{
     height: 20rem;
-    width: 20rem;
+    width: 18rem;
   }
 }
 
 @keyframes Expand_Keyframes_2 {
   to{
     /* height: 20rem; */
-    width: 20rem;
+    width: 18rem;
   }
 }
+
+#Recommended_Container{
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  grid-template-rows: repeat(3,1fr);
+  position: absolute;
+  top: 12rem;
+  left: calc(100% - 9rem - 0.5rem);
+  height: 6.5rem;
+  width: 9rem;
+  grid-gap: 0.01rem;
+  z-index: 3;
+  /* background-color: red; */
+}
+
+.Sample_Colours{
+  border: none;
+  border-radius: 0.5rem;
+  border: 0.15rem solid white;
+  box-shadow: inset 0 0.15rem 0.1rem 0.05rem rgba(0,0,0,0.12), 0 0.2rem 0.1rem 0.01rem rgba(0,0,0,0.05);
+  transition: 0.2s transform;
+}
+
+.Sample_Colours:hover{
+  transform: scale(1.1);
+  cursor: pointer;
+}
+
+#Sample_1{
+  background-color: rgba(233,223,205,1);
+}
+
+#Sample_2{
+  background-color: rgba(255,124,124,1);
+}
+
+#Sample_3{
+  background-color: pink;
+}
+
+#Sample_4{
+  background-color: rgba(255,184,0,1);
+}
+
+#Sample_5{
+  background-color: rgba(255,242,129,1);
+}
+
+#Sample_6{
+  background-color: rgba(109,231,143,1);
+}
+
+#Sample_7{
+  background-color: rgba(126,233,207,1);
+}
+
+#Sample_8{
+  background-color: rgba(124,218,239,1);
+}
+
+#Sample_9{
+  background-color: rgba(144,169,235,1);
+}
+
+#Sample_10{
+  background-color: rgba(171,130,224,1);
+}
+
+#Sample_11{
+  background-color: rgba(218,145,244,1);
+}
+
+#Sample_12{
+  background-color: rgba(241,134,224,1);
+}
+
+#Hue_Colour_Bar_Container{
+  position: absolute;
+  --Border_Thickness: 0.3rem;
+  z-index: 3;
+  top: 5rem;
+  left: 1.2rem;
+  height: 13.5rem;
+  width: 2.5rem;
+  border-radius: 0.5rem;
+  background-color: white;
+  box-sizing: border-box;
+  border: 0.15rem solid white;
+  box-shadow: inset 0 0.15rem 0.1rem 0.05rem rgba(0,0,0,0.12), 0 0.2rem 0.1rem 0.1rem rgba(0,0,0,0.05);
+  overflow: hidden;
+}
+
+#Hue_Colour_Bar{
+  position: absolute;
+  --Height: 105%;
+  --Width: 1000%;
+  height: var(--Height);
+  width: var(--Width);
+  top: calc(50% - var(--Height)/2);
+  left: calc(50% - var(--Width)/2);
+  background: linear-gradient(to bottom,hsl(0, 100%, 50%),hsl(10, 100%, 50%),hsl(30, 100%, 50%),hsl(60, 100%, 50%),hsl(90, 100%, 50%),hsl(120, 100%, 50%),hsl(150, 100%, 50%),hsl(180, 100%, 50%),hsl(210, 100%, 50%),hsl(240, 100%, 50%),hsl(270, 100%, 50%),hsl(300, 100%, 50%),hsl(330, 100%, 50%),hsl(360, 100%, 50%));
+  filter: blur(0.6rem);
+  opacity: 0.8;
+}
+
+#Slider_Handle{
+  position: absolute;
+  --Container_Height: 13.5rem;
+  --Height: 0.5rem;
+  height: var(--Height);
+  --Width: 80%;
+  --Border_Thickness: 0.1rem;
+  width: var(--Width);
+  top: calc(13.5rem/2 - var(--Height));
+  left: calc(50% - var(--Width)/2 - var(--Border_Thickness));
+  z-index: 7;
+  border-radius: 5rem;
+  border: var(--Border_Thickness) solid white;
+  box-shadow: 0 0.1rem 0.1rem 0.02rem rgba(0,0,0,0.1);
+}
+
+#Colour_Picker{
+  position: absolute;
+  --Border_Thickness: 0.5rem;
+  --Height: 10.5rem;
+  --Width: 13rem;
+  top: 0.5rem;
+  margin-top: 0.5rem;
+  left: calc(100% - var(--Width) - 0.6rem);
+  height: var(--Height);
+  width: var(--Width);
+  border-radius: 0.5rem;
+  background: white;
+  z-index: 3;
+  box-sizing: border-box;
+  border: var(--Border_Thickness) solid white;
+  box-shadow: 0 0.15rem 0.1rem 0.12rem rgba(0,0,0,0.05);
+  background: linear-gradient(to bottom, var(--Hue_Colour), black);
+  overflow: hidden;
+}
+
+#Overlay{
+  position: absolute;
+  top: -5%;
+  left: -5%;
+  width: 110%;
+  height: 110%;
+  background: radial-gradient(100% 100% at 0% 0%, rgba(255, 255, 255, 0.5) 10%, rgba(255, 255, 255, 0) 100%);
+}
+
+#White_Spark{
+  position: absolute;
+  --Diameter: 6rem;
+  top: calc(-1*var(--Diameter)/1.5);
+  left: calc(-1*var(--Diameter)/1.5);
+  height: var(--Diameter);
+  width: var(--Diameter);
+  border-radius: calc(var(--Diameter)/2);
+  background-color: white;
+  filter: blur(1.5rem);
+  opacity: 1;
+}
+
+#Shiny_White_Spark{
+  position: absolute;
+  --Diameter: 2.5rem;
+  top: calc(-1*var(--Diameter)/2);
+  left: calc(-1*var(--Diameter)/2);
+  height: var(--Diameter);
+  width: var(--Diameter);
+  border-radius: calc(var(--Diameter)/2);
+  background-color: white;
+  filter: blur(0.8rem);
+  opacity: 1;
+}
+
+#Saturation_Value_Selector{
+  position: absolute;
+  --Diameter: 0.8rem;
+  height: var(--Diameter);
+  width: var(--Diameter);
+  border-radius: calc(var(--Diameter)/2);
+  box-sizing: border-box;
+  border: 0.1rem solid white;
+  box-shadow: inset 0 0.05rem 0.1rem 0.02rem rgba(0,0,0,0.15), 0 0.1rem 0.1rem 0.02rem rgba(0,0,0,0.15);
+  transition: transform 0.2s;
+}
+
+#Saturation_Value_Selector:hover{
+  transform: scale(1.1);
+}
+
+#Intensity_Field_Containers{
+  display: grid;
+  grid-gap: 0.3rem;
+  grid-template-columns: 1fr 2fr;
+  grid-template-rows: repeat(3,1fr);
+  position: absolute; 
+  top: 61%;
+  left: 24%;
+  height: 31%;
+  width: 21%;
+}
+
+#Intensity_Field_Containers > input{
+  width: 2.5rem;
+  text-align: center;
+  border-radius: 0.2rem;
+  border: none;
+  background-color: var(--Gray_Tone_Text);
+  font-family: sans-serif;
+  font-size: 0.8rem;
+  color: white;
+}
+
+#Intensity_Field_Containers > div{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  font-family: sans-serif;
+  font-size: 0.8rem;
+  color: var(--Gray_Tone_Text);
+}
+
+#Button_Container{
+  display: grid;
+  position: absolute;
+  grid-gap: 0.5rem;
+  grid-template-columns: repeat(3,1fr);
+  grid-template-rows: 1fr;
+  --Offset: 0.5rem;
+  --Width: calc(100% - var(--Offset));
+  top: calc(50% - var(--Width)/2);
+  left: 6.2rem;
+  height: calc(100% - var(--Offset));
+  width: calc(100% - var(--Offset) - 6rem);
+  border-radius: 10rem;
+  /* background-color: rgba(240,240,240,1); */
+}
+
+#Button_Container > button{
+  --Diameter: 4rem;
+  top: calc(50% - var(--Diameter)/2);
+  left: calc(50% - var(--Diameter)/2);
+  height: var(--Diameter);
+  width: var(--Diameter);
+  border-radius: calc(var(--Diameter)/2);
+  background-color: gray;
+  transform: rotateZ(90deg);
+  display: flex;
+  justify-content: center;
+  vertical-align: middle;
+  align-items: center;
+  font-size: 2.5rem;
+  color: white;
+  transition: filter 0.1s;
+  border: none;
+}
+
+#Button_Container > button:hover{
+  cursor: pointer;
+}
+
+#Button_Container > button:nth-child(1){
+  background-color: rgba(171,130,224,1);
+}
+
+#Button_Container > button:nth-child(2){
+  background-color: rgba(126,233,207,1);
+  font-family: serif;
+}
+
+#Button_Container > button:nth-child(3){
+  background-color: rgba(255,124,124,1);
+}
+
+.Left_Tools{
+  transition: 0.1s;
+  transform: rotateY(90deg);
+}
+
+.Toggle_Left_Tools{
+  transform: rotateY(0deg);
+}
+
+.Right_Tools{
+  transition: 0.15s;
+  opacity: 0;
+}
+
+.Toggle_Right_Tools{
+  opacity: 1;
+}
+
+#Tools_SVG{
+  transform: rotateZ(90deg);
+}
+
+
+
+
+/* .Canvas_Colour_Panel{
+  height: 20rem;
+  width: 18rem;
+} */
+
+/* .Add_Panel{
+  width: 18rem;
+} */
+
+
+
+
+
+
+
+
 
 
 

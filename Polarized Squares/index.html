@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="./Stylesheets/Tools.css">
     <script src="./JavaScript/Canvas.js"></script>
     <script src="./JavaScript/Tools.js"></script>
+    <script src="./JavaScript/Colour_Conversion.js"></script>
   </head>
   <body>
     
@@ -24,12 +25,10 @@
     <div id="Centre_Nav_Buttons">
       <li><button>Q & A
       <div class="Bar">
-
       </div>
       </button></li>
       <li><button>Developers
       <div class="Bar">
-
       </div>
       </button></li>
     </div>
@@ -46,14 +45,75 @@
     
     
     <div class="Canvas_Colour_Panel">
-      <button id="Canvas_Colour_Button"  class="Toggle_Buttons"></button>
-    </div>
-    <div class="Add_Panel">
-      <button id="Add_Button" class="Toggle_Buttons"></button>
-    </div>
+      <button id="Canvas_Colour_Button" class="Toggle_Buttons">
+        <svg id="Paint_Tool_SVG" width="80%" height="80%" viewBox="0 0 84 87" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M70.6933 48.9706C68.7845 50.2899 65.4891 50.3046 61.1023 47.9809C56.839 45.7227 52.1847 41.5381 48.283 35.8929C44.3813 30.2477 42.1119 24.4147 41.5064 19.6284C40.8833 14.7035 42.0619 11.6259 43.9706 10.3067C45.8794 8.98744 49.1748 8.97272 53.5616 11.2964C57.8249 13.5546 62.4793 17.7392 66.381 23.3844C70.2827 29.0296 72.552 34.8626 73.1576 39.6489C73.7807 44.5738 72.6021 47.6514 70.6933 48.9706Z" stroke="white" stroke-width="5"/>
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M72.1278 51.0182C66.189 55.1228 54.7563 48.8742 46.592 37.0616C38.4277 25.2491 36.6235 12.3456 42.5623 8.24109C42.6931 8.15067 42.8266 8.06525 42.9627 7.98483C42.9669 7.98233 42.9681 7.97678 42.9653 7.97275C42.9627 7.96893 42.9574 7.96796 42.9536 7.97061L42.5623 8.24109L3.92406 34.946C3.92789 34.9433 3.93315 34.9443 3.93579 34.9481C3.93858 34.9522 3.93736 34.9577 3.93314 34.9602C3.79707 35.0406 3.66357 35.126 3.53274 35.2165C-2.406 39.321 -0.601833 52.2244 7.56246 64.037C15.7268 75.8496 27.1595 82.0981 33.0983 77.9935C33.2291 77.9031 33.3562 77.8084 33.4795 77.7096C33.4817 77.7078 33.4846 77.7073 33.4871 77.7081L33.4891 77.7089C33.4901 77.7095 33.491 77.7103 33.4917 77.7114C33.4944 77.7152 33.4934 77.7204 33.4896 77.7231L72.1278 51.0182ZM72.5191 50.7477L72.1279 51.0181C72.2587 50.9277 72.3857 50.833 72.509 50.7342C72.5128 50.7311 72.5185 50.732 72.5212 50.736C72.5239 50.7398 72.5229 50.7451 72.5191 50.7477ZM77 77C80.3137 77 83 73.435 83 69.0374C83 65.298 78.6136 56.3222 77.3414 53.719L77.3413 53.7188C77.1175 53.2607 76.99 53 77 53C77 53 71 64.6398 71 69.0374C71 73.435 73.6863 77 77 77ZM71 80.0234C71 82.7719 69.433 85 67.5 85C65.567 85 64 82.7719 64 80.0234C64 77.2748 67.5 70 67.5 70C67.4942 70 67.5685 70.163 67.6991 70.4493C68.4412 72.0762 71 77.6862 71 80.0234ZM78.5 87C79.3284 87 80 85.9602 80 84.6776C80 83.5869 78.9034 80.9689 78.5853 80.2097C78.5294 80.0761 78.4975 80 78.5 80C78.5 80 77 83.3949 77 84.6776C77 85.9602 77.6716 87 78.5 87Z" fill="white"/>
+        </svg>
 
+      </button>
+      <div class="Canvas_Colour_Tools Left_Tools" id="Colour_Picker">
+          <div id="Overlay"></div>
+            <div id="White_Spark"></div>
+            <div id="Shiny_White_Spark"></div>
+            <div id="Saturation_Value_Selector"></div>
+      </div>
+      <div class="Left_Tools" id="Recommended_Container">
+        <button id="Sample_1" class="Sample_Colours" type="button" name="button"></button>
+        <button id="Sample_2" class="Sample_Colours" type="button" name="button"></button>
+        <button id="Sample_3" class="Sample_Colours" type="button" name="button"></button>
+        <button id="Sample_4" class="Sample_Colours" type="button" name="button"></button>
+        <button id="Sample_5" class="Sample_Colours" type="button" name="button"></button>
+        <button id="Sample_6" class="Sample_Colours" type="button" name="button"></button>
+        <button id="Sample_7" class="Sample_Colours" type="button" name="button"></button>
+        <button id="Sample_8" class="Sample_Colours" type="button" name="button"></button>
+        <button id="Sample_9" class="Sample_Colours" type="button" name="button"></button>
+        <button id="Sample_10" class="Sample_Colours" type="button" name="button"></button>
+        <button id="Sample_11" class="Sample_Colours" type="button" name="button"></button>
+        <button id="Sample_12" class="Sample_Colours" type="button" name="button"></button>
+      </div>
+      <div class="Left_Tools" id="Hue_Colour_Bar_Container">
+        <div id="Slider_Handle"></div>
+        <div id="Hue_Colour_Bar"></div>
+      </div>
+      
+      <div id="Intensity_Field_Containers" class="Left_Tools">
+        <div class="Side_Labels">R:</div>
+        <input class="Intensity_Field" type="numeric" value="254" maxlength="3">
+        <div class="Side_Labels">G:</div>
+        <input class="Intensity_Field" type="numeric" value="192" maxlength="3">
+        <div class="Side_Labels">B:</div>
+        <input class="Intensity_Field" type="numeric" value="203" maxlength="3">
+      </div>
+    </div>
     
     
+    <div class="Add_Panel">
+      <button id="Add_Button" class="Toggle_Buttons">
+        <svg id="Tools_SVG" width="80%" height="80%" viewBox="0 0 209 257" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path fill-rule="evenodd" clip-rule="evenodd" d="M83.8933 34.6986C84.2006 34.8379 84.5513 34.8176 84.8468 34.6549C87.1855 33.3673 98.2321 28.0649 113.662 33.1133C130.881 38.747 130.535 44.8989 124.412 59.7887L98.1677 117.652C96.186 118.162 94.4444 119.532 93.5334 121.541L61.2372 192.747C61.1717 192.892 61.1127 193.034 61.0557 193.182C60.59 194.39 58.2224 200.367 55.2579 204.93C54.152 206.633 52.573 208.024 51.0141 209.398C47.9027 212.14 44.871 214.812 45.8383 219.745C47.4776 228.106 67.2492 236.024 72.0895 229.198C73.9485 226.576 74.3098 224.166 74.6874 221.646C74.9789 219.701 75.2802 217.691 76.2881 215.469L82.1691 202.502L114.564 131.079C115.475 129.071 115.358 126.858 114.436 125.031L144.172 59.471C144.173 59.4685 144.174 59.466 144.175 59.4636L139.8 69.1088C139.8 69.1088 143.701 62.3802 150.335 62.9546C157.958 64.1771 167.199 70.0398 169.445 74.3112C171.691 78.5826 172.047 82.2308 172.047 82.2308L187.328 48.5394C187.328 48.5394 184.481 53.8889 176.316 51.4044C173.442 50.9132 166.298 47.476 163.472 45.579C154.272 39.4029 156.863 31.4891 156.863 31.4891L156.642 31.977C156.78 31.6722 156.754 31.3205 156.539 31.0643C154.942 29.1636 146.798 21.3376 118.113 16.8485C89.3415 12.3458 80.2086 27.4113 78.3933 31.1962C78.1683 31.6654 78.392 32.2034 78.8659 32.4183L83.8933 34.6986ZM172.047 82.2307L186.946 88.9882C187.758 89.3562 188.71 89.1459 189.266 88.4502C191.225 86.0024 195.759 80.0288 198.525 73.929C201.292 67.8292 202.799 60.4828 203.351 57.3968C203.508 56.5197 203.039 55.6649 202.227 55.2968L187.328 48.5394L172.047 82.2307Z" fill="#FFFFFF"/>
+  </svg>
+
+      
+      </button>
+        <div id="Button_Container" class="Right_Tools">
+          <button id="Add_Square_Button">
+            <svg width="50%" height="50%" viewBox="0 0 121 121" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M60.299 10.1842C54.7762 10.1842 50.299 14.6614 50.299 20.1842V50.1842H20.299C14.7762 50.1842 10.299 54.6614 10.299 60.1842C10.299 65.707 14.7762 70.1842 20.299 70.1842H50.299V100.184C50.299 105.707 54.7762 110.184 60.299 110.184C65.8218 110.184 70.299 105.707 70.299 100.184V70.1842H100.299C105.822 70.1842 110.299 65.707 110.299 60.1842C110.299 54.6614 105.822 50.1842 100.299 50.1842H70.299V20.1842C70.299 14.6614 65.8218 10.1842 60.299 10.1842Z" fill="white"/>
+            </svg>
+          </button>
+          <button id="Add_Text_Button">T</button>
+          <button id="Screenshot_Button">
+            <svg width="60%" height="60%" viewBox="0 0 84 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="2.5" y="9.5" width="79" height="60" rx="12.5" stroke="white" stroke-width="5"/>
+            <circle cx="41.5" cy="39.5" r="15" stroke="white" stroke-width="5"/>
+            <path d="M16 1.5H23C24.933 1.5 26.5 3.067 26.5 5V10.5H12.5V5C12.5 3.067 14.067 1.5 16 1.5Z" stroke="white" stroke-width="3"/>
+            <circle cx="61.5" cy="24.5" r="4.5" fill="white"/>
+            </svg>
+          </button>
+        </div>
+
+    </div>
     
     
   </div>

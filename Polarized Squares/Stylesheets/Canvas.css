@@ -2,6 +2,7 @@
 :root{
   --Canvas_Colour: pink;
   --Navigation_Bar_Height: 3rem;
+  --Charcoal_Black: rgb(30,30,30);
   font-size: 1em;
 }
 
@@ -12,7 +13,7 @@ html{
 
 body{
   margin: 0;
-  background-color: var(--Canvas_Colour);
+  background-color: var(--Charcoal_Black);
 }
 
 #Canvas{
@@ -32,7 +33,7 @@ body{
   width: 100%;
   z-index: 2;
   list-style-type: none;
-  background-color: rgb(30,30,30);
+  background-color: var(--Charcoal_Black);
 }
 
 #Navigation_Bar > li{
@@ -143,7 +144,7 @@ body{
   transform: translateX(100%);
 }
 
-@media only screen and (max-width: 700px) {
+@media only screen and (max-width: 600px) {
   #Navigation_Bar > li:not(:nth-of-type(1)){
     display: block;
   }
