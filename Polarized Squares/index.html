@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="./Stylesheets/Highlight_Configuration.css">
     <link rel="stylesheet" href="./Stylesheets/Canvas.css">
     <link rel="stylesheet" href="./Stylesheets/Tools.css">
+    <link rel="stylesheet" href="./Stylesheets/Square_Templates.css">
     <script src="./JavaScript/Canvas.js"></script>
     <script src="./JavaScript/Tools.js"></script>
     <script src="./JavaScript/Colour_Conversion.js"></script>
@@ -43,7 +44,21 @@
   
   <div id="Canvas">
     
-    
+    <template>
+      <div class="Polarized_Square">
+        <div class="Modify_Handles Move_Handle"></div>
+        <div class="Modify_Handles Rotate_Handle"></div>
+        <div class="Modify_Handles Size_Handle"></div>
+        <div class="Modify_Handles Trash_Handle"></div>
+        <div class="Picture_Square">
+          <div class="Add_Picture_Prompt" for="Picture_Square">
+            Drag and Drop Picture<br>Here to Add
+          </div>
+        </div>
+      </div>
+    </template>
+
+
     <div class="Canvas_Colour_Panel">
       <button id="Canvas_Colour_Button" class="Toggle_Buttons">
         <svg id="Paint_Tool_SVG" width="80%" height="80%" viewBox="0 0 84 87" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -52,7 +67,8 @@
         </svg>
 
       </button>
-      <div class="Canvas_Colour_Tools Left_Tools" id="Colour_Picker">
+      <span class="Left_Tools">
+      <div class="Canvas_Colour_Tools Left_Tools" id="Colour_Picker">        
           <div id="Overlay"></div>
             <div id="White_Spark"></div>
             <div id="Shiny_White_Spark"></div>
@@ -85,6 +101,9 @@
         <div class="Side_Labels">B:</div>
         <input class="Intensity_Field" type="numeric" value="203" maxlength="3">
       </div>
+      <div id="Canvas_Colour_Label">Canvas Colour</div>
+      
+      </span>
     </div>
     
     
@@ -96,6 +115,8 @@
 
       
       </button>
+      <span class="Right_Tools">
+
         <div id="Button_Container" class="Right_Tools">
           <button id="Add_Square_Button">
             <svg width="50%" height="50%" viewBox="0 0 121 121" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -112,9 +133,9 @@
             </svg>
           </button>
         </div>
-
     </div>
-    
+    </span>
+
     
   </div>
     

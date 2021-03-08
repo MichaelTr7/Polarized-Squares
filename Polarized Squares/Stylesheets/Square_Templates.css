@@ -1,0 +1,102 @@
+:root{
+}
+
+.Polarized_Square{
+  position: absolute;
+  --Scalar: 1;
+  --Height: calc(var(--Scalar)*20rem);
+  --Width: calc(var(--Scalar)*16.5rem);
+  height: var(--Height);
+  width: var(--Width);
+  background-color: white;
+  top: calc(50vh - var(--Height)/2);
+  left: calc(50vw - var(--Width)/2);
+  box-shadow: 0rem calc(var(--Height)/80) calc(var(--Height)/40) 0rem rgba(0,0,0,0.2);
+  /* transform: scale(0.5); */
+}
+
+.Picture_Square{
+  position: absolute;
+  --Scalar: 1;
+  --Margin: calc(var(--Scalar)*1rem);
+  --Height: calc(80%);
+  --Width: calc(90%);
+  height: var(--Height);
+  width: var(--Width);
+  left: calc(50% - var(--Width)/2);
+  margin-top: var(--Margin);
+  background-color: gray;
+}
+
+.Modify_Handles{
+  display: none;
+  position: absolute;
+  --Diameter: 2rem;
+  height: var(--Diameter);
+  width: var(--Diameter);
+  border-radius: calc(var(--Diameter)/2);
+  background-color: var(--Gray_Tone_Text);
+  border: 0.1rem solid white;
+  box-sizing: border-box;
+  z-index: 51;  
+  color: white;
+}
+
+.Move_Handle{
+  top: calc(0% - var(--Diameter)/2);
+  left: calc(0% - var(--Diameter)/2);
+}
+
+.Rotate_Handle{
+   top: calc(0% - var(--Diameter)/2);
+   left: calc(100% - var(--Diameter)/2);
+}
+
+.Size_Handle{
+   top: calc(100% - var(--Diameter)/2);
+   left: calc(100% - var(--Diameter)/2);
+}
+
+.Trash_Handle{
+  top: calc(100% - var(--Diameter)/2);
+  left: calc(0% - var(--Diameter)/2);
+}
+
+
+.Add_Picture_Prompt{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  --Height: 2rem;
+  --Width: 9rem;
+  text-align: center;
+  font-size: 0.8rem;
+  font-family: sans-serif;
+  color: white;
+  height: var(--Height);
+  width: var(--Width);
+  top: calc(50% - var(--Height)/2);
+  left: calc(50% - var(--Width)/2);
+
+}
+
+.Add_Picture_Prompt:hover{
+  cursor: default;
+}
+
+
+.Toggle_Controls{
+  display: block;
+}
+
+
+
+
+
+
+
+
+
+
+

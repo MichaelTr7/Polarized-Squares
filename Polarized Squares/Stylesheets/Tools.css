@@ -13,11 +13,12 @@
   --Diameter: 4.5rem;
   height: var(--Diameter);
   width: var(--Diameter);
-  border-radius: calc(var(--Diameter)/2);
+  border-radius: calc(var(--Diameter)/4);
   border: none;
-  background-color: white;
-  box-shadow: 0 0.1rem 0.2rem 0.025rem rgba(0,0,0,0.1);
+  background-color: var(--Charcoal_Black);
+  /* box-shadow: 0 0.1rem 0.2rem 0.025rem rgba(0,0,0,0.1); */
   transition: 1s;
+  z-index: 50;
 }
 
 .Canvas_Colour_Panel{
@@ -41,10 +42,10 @@
   --Small_Diameter: 4.5rem;
   height: var(--Small_Diameter);
   width: var(--Small_Diameter);
-  border: var(--Border_Thickness) solid white;
+  border: var(--Border_Thickness) solid var(--Charcoal_Black);
   border-radius: calc(var(--Small_Diameter)/2);
   background-color: var(--Gray_Tone_Text);
-  z-index: 10;
+  z-index: 50;
 }
 
 #Canvas_Colour_Button{
@@ -95,15 +96,15 @@
   height: 6.5rem;
   width: 9rem;
   grid-gap: 0.01rem;
-  z-index: 3;
   /* background-color: red; */
 }
 
 .Sample_Colours{
   border: none;
   border-radius: 0.5rem;
-  border: 0.15rem solid white;
-  box-shadow: inset 0 0.15rem 0.1rem 0.05rem rgba(0,0,0,0.12), 0 0.2rem 0.1rem 0.01rem rgba(0,0,0,0.05);
+  border: 0.15rem solid var(--Gray_Tone_Text);
+  box-shadow: inset 0 0.15rem 0.1rem 0.05rem rgba(0,0,0,0.12);
+  /* , 0 0.2rem 0.1rem 0.01rem rgba(0,0,0,0.05); */
   transition: 0.2s transform;
 }
 
@@ -163,16 +164,16 @@
 #Hue_Colour_Bar_Container{
   position: absolute;
   --Border_Thickness: 0.3rem;
-  z-index: 3;
   top: 5rem;
-  left: 1.2rem;
+  left: 0.9rem;
   height: 13.5rem;
   width: 2.5rem;
   border-radius: 0.5rem;
   background-color: white;
   box-sizing: border-box;
-  border: 0.15rem solid white;
-  box-shadow: inset 0 0.15rem 0.1rem 0.05rem rgba(0,0,0,0.12), 0 0.2rem 0.1rem 0.1rem rgba(0,0,0,0.05);
+  border: 0.15rem solid var(--Gray_Tone_Text);
+  box-shadow: inset 0 0.15rem 0.1rem 0.05rem rgba(0,0,0,0.12);
+  /* , 0 0.2rem 0.1rem 0.1rem rgba(0,0,0,0.05); */
   overflow: hidden;
 }
 
@@ -199,28 +200,27 @@
   width: var(--Width);
   top: calc(13.5rem/2 - var(--Height));
   left: calc(50% - var(--Width)/2 - var(--Border_Thickness));
-  z-index: 7;
   border-radius: 5rem;
   border: var(--Border_Thickness) solid white;
   box-shadow: 0 0.1rem 0.1rem 0.02rem rgba(0,0,0,0.1);
+  z-index: 51;
 }
 
 #Colour_Picker{
   position: absolute;
-  --Border_Thickness: 0.5rem;
+  --Border_Thickness: 0.1rem;
   --Height: 10.5rem;
-  --Width: 13rem;
+  --Width: 12.5rem;
   top: 0.5rem;
-  margin-top: 0.5rem;
-  left: calc(100% - var(--Width) - 0.6rem);
+  margin-top: 0.2rem;
+  left: calc(100% - var(--Width) - 0.9rem);
   height: var(--Height);
   width: var(--Width);
   border-radius: 0.5rem;
   background: white;
-  z-index: 3;
-  box-sizing: border-box;
-  border: var(--Border_Thickness) solid white;
-  box-shadow: 0 0.15rem 0.1rem 0.12rem rgba(0,0,0,0.05);
+  /* box-sizing: border-box; */
+  border: var(--Border_Thickness) solid var(--Gray_Tone_Text);
+  /* box-shadow: 0 0.15rem 0.1rem 0.12rem rgba(0,0,0,0.05); */
   background: linear-gradient(to bottom, var(--Hue_Colour), black);
   overflow: hidden;
 }
@@ -236,7 +236,7 @@
 
 #White_Spark{
   position: absolute;
-  --Diameter: 6rem;
+  --Diameter: 20rem;
   top: calc(-1*var(--Diameter)/1.5);
   left: calc(-1*var(--Diameter)/1.5);
   height: var(--Diameter);
@@ -244,7 +244,7 @@
   border-radius: calc(var(--Diameter)/2);
   background-color: white;
   filter: blur(1.5rem);
-  opacity: 1;
+  opacity: 0.7;
 }
 
 #Shiny_White_Spark{
@@ -362,30 +362,40 @@
   background-color: rgba(255,124,124,1);
 }
 
+#Canvas_Colour_Label{
+  --Bottom_Margin: 0.2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  height: 1.2rem;
+  width: 100%;
+  text-align: center;
+  top: calc(100% - 1.2rem - var(--Bottom_Margin));
+  font-family: sans-serif;
+  font-size: 0.8rem;
+  color: var(--Gray_Tone_Text);
+}
+
 .Left_Tools{
-  transition: 0.1s;
-  transform: rotateY(90deg);
+  display: none;
 }
 
 .Toggle_Left_Tools{
-  transform: rotateY(0deg);
+  display: block;
 }
 
 .Right_Tools{
-  transition: 0.15s;
-  opacity: 0;
+  display: none;
 }
 
 .Toggle_Right_Tools{
-  opacity: 1;
+  display: block;
 }
 
 #Tools_SVG{
   transform: rotateZ(90deg);
 }
-
-
-
 
 /* .Canvas_Colour_Panel{
   height: 20rem;

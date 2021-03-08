@@ -5,20 +5,28 @@ let Hue_Input = 349/360;
 let Saturation_Input = 0.24;
 let Value_Input = 1;
 
+var Hue_Slider_Container_Start_Tolerance = 1;
+var Hue_Slider_Container_Height = 203;
+
+
 function Initial_Positions(){  
   let Initial_Hue = 349/360;
   let Initial_Saturation = 0.24;
   let Initial_Value = 1;
   let RGB_Coordinates = HSV_To_RGB(Initial_Hue,100,100);
   let RGB_String = "rgb(" + String(RGB_Coordinates.r) + "," + String(RGB_Coordinates.g) + "," + String(RGB_Coordinates.b) + ")";
-  var Canvas = document.getElementById('Canvas');
+  let Canvas = document.getElementById('Canvas');
   Canvas.style.backgroundColor = 'pink';
-  var Root = document.querySelector(':root');
+  let Root = document.querySelector(':root');
   Root.style.setProperty('--Hue_Colour',RGB_String);
-  let Hue_Slider_Position = Initial_Hue*203 - 1;  
+  let Saturation_Value_Selector_Plane = document.getElementById('Colour_Picker');
+  let Plane_Width = parseFloat(window.getComputedStyle(Saturation_Value_Selector_Plane).getPropertyValue('width'));
+  
+  let Hue_Slider_Position = Initial_Hue*Hue_Slider_Container_Height - Hue_Slider_Container_Start_Tolerance;  
   let Hue_Slider = document.getElementById('Slider_Handle');
   Hue_Slider.style.top = Hue_Slider_Position + "px";
-  let Saturation_Position_X = Initial_Saturation*179;
+  
+  let Saturation_Position_X = Initial_Saturation*Plane_Width;
   let Saturation_Value_Selector = document.getElementById('Saturation_Value_Selector');
   Saturation_Value_Selector.style.left = Saturation_Position_X + "px";
 }
@@ -94,16 +102,16 @@ function Moving_Hue_Target(){
     let Container_Height = parseInt(window.getComputedStyle(Hue_Container).getPropertyValue('height'));
     let Relative_Top_Position = Mouse_Height-Container_Top;
     let Resultant_Position = Relative_Top_Position - Selector_Height*2
-    if(Resultant_Position < -1){
-      Resultant_Position = -1;
+    if(Resultant_Position < -Hue_Slider_Container_Start_Tolerance){
+      Resultant_Position = -Hue_Slider_Container_Start_Tolerance;
     }
-    if(Resultant_Position >= 202){
-      Resultant_Position = 202;
+    if(Resultant_Position >= Hue_Slider_Container_Height-Hue_Slider_Container_Start_Tolerance){
+      Resultant_Position = Hue_Slider_Container_Height-Hue_Slider_Container_Start_Tolerance;
     }
     Hue_Picker.style.top = Resultant_Position + "px";
   
   let Hue_Value = Resultant_Position + 1;
-  let Hue_Percentage = (Hue_Value/203);
+  let Hue_Percentage = (Hue_Value/Hue_Slider_Container_Height);
   Colour_Tile_Colour(Hue_Percentage)
 }
 }
@@ -149,7 +157,7 @@ function Moving_Saturation_Value_Selector(){
     let Left_Position = Mouse_Position_X - Bounds_Left;
     let Plane_Position_Y = Top_Position - Selector_Height;
     let Plane_Position_X = Left_Position - Selector_Height;  
-    let Top_Limit = 0, Bottom_Limit = 139, Left_Limit = 0, Right_Limit = 179;
+    let Top_Limit = 0, Bottom_Limit = Selector_Plane_Height - Selector_Height, Left_Limit = 0, Right_Limit = Selector_Plane_Width - Selector_Height;
     if(Plane_Position_Y <= Top_Limit){
       Plane_Position_Y = Top_Limit;
     }
