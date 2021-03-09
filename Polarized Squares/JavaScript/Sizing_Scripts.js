@@ -27,9 +27,45 @@ function Add_Picture(){
   let New_Drop_Zone = document.createElement('div');
   New_Drop_Zone.classList.add('Drop_Zone');
   New_Picture.appendChild(New_Drop_Zone);
-  New_Drop_Zone.addEventListener("dragenter",Entered_Drop_Zone);
-  New_Drop_Zone.addEventListener("dragleave",Left_Drop_Zone);
-  New_Drop_Zone.addEventListener("drop",Dropped_Image_File);
+
+  New_Drop_Zone.ondragenter = function(e){
+    let Canvas_Colour = window.getComputedStyle(document.getElementById('Canvas')).getPropertyValue('background-color');
+    New_Drop_Zone.style.borderColor = Canvas_Colour;
+    e.stopPropagation();
+    e.preventDefault();
+    return false;
+  }
+
+  New_Drop_Zone.ondragover = function(e){
+    e.stopPropagation();
+    e.preventDefault();
+    return false;
+  };
+
+  New_Drop_Zone.ondragleave = function(e){
+    New_Drop_Zone.style.borderColor = "gray";
+    e.stopPropagation();
+    e.preventDefault();
+    return false;
+  };
+
+  New_Drop_Zone.ondragend = function(e){
+    New_Drop_Zone.style.borderColor = "gray";
+    e.stopPropagation();
+    e.preventDefault();
+    return false;
+  };
+
+  New_Drop_Zone.ondrop = function(e){
+      e.stopPropagation();
+      e.preventDefault();
+      New_Drop_Zone.style.borderColor = "gray";
+      let File_Data = e.dataTransfer.files;
+      var imageUrl = e.dataTransfer.getData('url');
+       alert(imageUrl);
+      Insert_Image(File_Data);
+      return false;
+  };
   
   let Move_Handle = document.createElement('div');
   Move_Handle.classList.add('Move_Handle');
@@ -48,20 +84,18 @@ function Add_Picture(){
   Resize_Handle.addEventListener("mousedown",Start_Resizing_Picture);
   Rotate_Handle.addEventListener("mousedown",Start_Rotating);
   New_Picture_Film.appendChild(Move_Handle);
+  var Move_SVG = document.getElementById('Move_SVG');
+  Move_Handle.appendChild(Move_SVG.cloneNode(true));
   // New_Picture_Film.appendChild(Rotate_Handle);
   New_Picture_Film.appendChild(Resize_Handle);
+  var Resize_SVG = document.getElementById('Resize_SVG');
+  Resize_Handle.appendChild(Resize_SVG.cloneNode(true));
   New_Picture_Film.appendChild(Trash_Handle);
+  var Trash_SVG = document.getElementById('Trash_SVG');
+  Trash_Handle.appendChild(Trash_SVG.cloneNode(true));
   New_Picture_Film.addEventListener("dblclick",Toggle_Controls);
   let Number_Of_Pictures = document.getElementsByClassName('Polarized_Square').length;
   New_Picture_Film.id = "Picture_Number_" + String(Number_Of_Pictures);
-}
-
-function Add_Text_Box(){
-  console.log("Add Text Box");
-}
-
-function Screenshot_Canvas(){
-  console.log("Screenshot Canvas");
 }
 
 function Toggle_Controls(){  
@@ -198,36 +232,21 @@ function Rotating_Picture(){
   }
 }
 
-function Entered_Drop_Zone(){
-  let Canvas_Colour = window.getComputedStyle(document.getElementById('Canvas')).getPropertyValue('background-color');
-  this.style.borderColor = Canvas_Colour;
-}
 
-function Left_Drop_Zone(){
-  this.style.borderColor = "gray";
-}
-
-
-
-
-
-function Dropped_Image_File(){
-  console.log("Dropped Image File");
+// Three main functions
+function Insert_Image(File_Data){
+  console.log(File_Data);
   
-
-
 }
 
+function Add_Text_Box(){
+  console.log("Add Text Box");
+}
 
-
-
-
-
-
-
-
-
-
+function Screenshot_Canvas(){
+  console.log("Screenshot Canvas");
+  save();
+}
 
 
 

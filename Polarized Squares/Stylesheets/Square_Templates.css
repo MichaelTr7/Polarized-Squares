@@ -112,10 +112,25 @@
   display: block;
 }
 
+.Move_SVG_Properties,.Resize_SVG_Properties{
+  position: absolute;
+  --Size: 80%;
+   width: var(--Size); 
+   height: var(--Size);
+   top: calc(50% - var(--Size)/2);
+   left: calc(50% - var(--Size)/2);
+   fill: white;
+}
 
-
-
-
+.Trash_SVG_Properties{
+  position: absolute;
+  --Size: 60%;
+   width: var(--Size); 
+   height: var(--Size);
+   top: calc(50% - var(--Size)/2);
+   left: calc(50% - var(--Size)/2);
+   fill: white;
+}
 
 
 
