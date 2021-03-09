@@ -245,7 +245,18 @@ function Add_Text_Box(){
 
 function Screenshot_Canvas(){
   console.log("Screenshot Canvas");
-  save();
+  let Left_Tools = document.getElementsByClassName('Canvas_Colour_Panel')[0];
+  let Right_Tools = document.getElementsByClassName('Add_Panel')[0];
+  let Navigation_Bar = document.getElementById('Navigation_Bar');
+  Left_Tools.style.display = "none";
+  Right_Tools.style.display = "none";
+  Navigation_Bar.style.display = "none";
+
+    // window.print();
+  
+
+
+
 }
 
 

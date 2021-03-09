@@ -39,6 +39,7 @@ window.onload = function(){
   document.addEventListener("mouseup",End_Rotating);
   document.addEventListener("mousemove",Rotating_Picture);
   document.getElementById('Canvas').addEventListener("click",Close_Modifier_Handles);
+  document.body.addEventListener("dblclick",Show_Tools);
 }
 
 function Close_Modifier_Handles(){
@@ -48,7 +49,14 @@ function Close_Modifier_Handles(){
   }
 }
 
-
+function Show_Tools(){
+  let Left_Tools = document.getElementsByClassName('Canvas_Colour_Panel')[0];
+  let Right_Tools = document.getElementsByClassName('Add_Panel')[0];
+  let Navigation_Bar = document.getElementById('Navigation_Bar');
+  Left_Tools.style.display = "block";
+  Right_Tools.style.display = "block";
+  Navigation_Bar.style.display = "block";
+}
 
 
 

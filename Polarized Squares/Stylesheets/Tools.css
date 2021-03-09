@@ -65,11 +65,11 @@
 }
 
 .Expand_Animation_1{
-  animation: Expand_Keyframes_1 0.2s ease var(--Colour_Panel_Animation_Direction);
+  animation: Expand_Keyframes_1 0.18s ease var(--Colour_Panel_Animation_Direction);
 }
 
 .Expand_Animation_2{
-  animation: Expand_Keyframes_2 0.2s ease var(--Add_Panel_Animation_Direction);
+  animation: Expand_Keyframes_2 0.18s ease var(--Add_Panel_Animation_Direction);
 }
 
 @keyframes Expand_Keyframes_1 {
@@ -110,7 +110,6 @@
   /* border: 0.15rem solid var(--Gray_Tone_Text); */
   box-shadow: inset 0 0.15rem 0.1rem 0.05rem rgba(0,0,0,0.12);
   /* , 0 0.2rem 0.1rem 0.01rem rgba(0,0,0,0.05); */
-  transition: 0.2s transform;
 }
 
 .Sample_Colours:hover{
@@ -275,7 +274,6 @@
   box-sizing: border-box;
   border: 0.1rem solid white;
   box-shadow: inset 0 0.05rem 0.1rem 0.02rem rgba(0,0,0,0.15), 0 0.1rem 0.1rem 0.02rem rgba(0,0,0,0.15);
-  transition: transform 0.2s;
 }
 
 /* #Saturation_Value_Selector:hover{
@@ -347,7 +345,6 @@
   align-items: center;
   font-size: 2.5rem;
   color: white;
-  transition: filter 0.1s;
   border: none;
 }
 
