@@ -8,7 +8,6 @@ let Value_Input = 1;
 var Hue_Slider_Container_Start_Tolerance = 1;
 var Hue_Slider_Container_Height = 203;
 
-
 function Initial_Positions(){  
   let Initial_Hue = 349/360;
   let Initial_Saturation = 0.24;
@@ -29,6 +28,20 @@ function Initial_Positions(){
   let Saturation_Position_X = Initial_Saturation*Plane_Width;
   let Saturation_Value_Selector = document.getElementById('Saturation_Value_Selector');
   Saturation_Value_Selector.style.left = Saturation_Position_X + "px";
+}
+
+function Animate_Left_Tools(){
+  let Left_Tools_Span = document.getElementsByClassName('Left_Tools');
+  for(Index = 0; Index < Left_Tools_Span.length; Index++){
+    Left_Tools_Span[Index].classList.toggle('Toggle_Left_Tools');
+  }  
+}
+
+function Animate_Right_Tools(){
+  let Left_Tools_Span = document.getElementsByClassName('Right_Tools');
+  for(Index = 0; Index < Left_Tools_Span.length; Index++){
+    Left_Tools_Span[Index].classList.toggle('Toggle_Right_Tools');
+  }  
 }
 
 function Pick_Background_Colour(){
@@ -186,7 +199,9 @@ function Push_Selected_Colour_To_Background(H,S,V){
   let RGB_String = "rgb(" + String(RGB_Coordinates.r) + "," + String(RGB_Coordinates.g) + "," + String(RGB_Coordinates.b) + ")";
   var Canvas = document.getElementById('Canvas');
   Canvas.style.backgroundColor = RGB_String;
+  document.body.style.backgroundColor = RGB_String;
 }
+
 
 
 

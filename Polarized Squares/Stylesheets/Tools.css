@@ -101,15 +101,20 @@
 
 .Sample_Colours{
   border: none;
+  --Size: 90%;
+  height: var(--Size);
+  width: var(--Size);
+  top: calc(50% - var(--Size)/2);
+  left: calc(50% - var(--Size)/2);
   border-radius: 0.5rem;
-  border: 0.15rem solid var(--Gray_Tone_Text);
+  /* border: 0.15rem solid var(--Gray_Tone_Text); */
   box-shadow: inset 0 0.15rem 0.1rem 0.05rem rgba(0,0,0,0.12);
   /* , 0 0.2rem 0.1rem 0.01rem rgba(0,0,0,0.05); */
   transition: 0.2s transform;
 }
 
 .Sample_Colours:hover{
-  transform: scale(1.1);
+  /* transform: scale(1.1); */
   cursor: pointer;
 }
 
@@ -171,7 +176,7 @@
   border-radius: 0.5rem;
   background-color: white;
   box-sizing: border-box;
-  border: 0.15rem solid var(--Gray_Tone_Text);
+  /* border: 0.15rem solid var(--Gray_Tone_Text); */
   box-shadow: inset 0 0.15rem 0.1rem 0.05rem rgba(0,0,0,0.12);
   /* , 0 0.2rem 0.1rem 0.1rem rgba(0,0,0,0.05); */
   overflow: hidden;
@@ -185,8 +190,9 @@
   width: var(--Width);
   top: calc(50% - var(--Height)/2);
   left: calc(50% - var(--Width)/2);
-  background: linear-gradient(to bottom,hsl(0, 100%, 50%),hsl(10, 100%, 50%),hsl(30, 100%, 50%),hsl(60, 100%, 50%),hsl(90, 100%, 50%),hsl(120, 100%, 50%),hsl(150, 100%, 50%),hsl(180, 100%, 50%),hsl(210, 100%, 50%),hsl(240, 100%, 50%),hsl(270, 100%, 50%),hsl(300, 100%, 50%),hsl(330, 100%, 50%),hsl(360, 100%, 50%));
+  background-image: linear-gradient(to bottom,hsl(0, 100%, 50%),hsl(10, 100%, 50%),hsl(30, 100%, 50%),hsl(60, 100%, 50%),hsl(90, 100%, 50%),hsl(120, 100%, 50%),hsl(150, 100%, 50%),hsl(180, 100%, 50%),hsl(210, 100%, 50%),hsl(240, 100%, 50%),hsl(270, 100%, 50%),hsl(300, 100%, 50%),hsl(330, 100%, 50%),hsl(360, 100%, 50%));
   filter: blur(0.6rem);
+  background-position: -500% -500%;
   opacity: 0.8;
 }
 
@@ -208,18 +214,18 @@
 
 #Colour_Picker{
   position: absolute;
-  --Border_Thickness: 0.1rem;
+  --Border_Thickness: 0.2rem;
   --Height: 10.5rem;
   --Width: 12.5rem;
   top: 0.5rem;
-  margin-top: 0.2rem;
+  margin-top: 0.5rem;
   left: calc(100% - var(--Width) - 0.9rem);
   height: var(--Height);
   width: var(--Width);
   border-radius: 0.5rem;
   background: white;
   /* box-sizing: border-box; */
-  border: var(--Border_Thickness) solid var(--Gray_Tone_Text);
+  /* border: var(--Border_Thickness) solid var(--Gray_Tone_Text); */
   /* box-shadow: 0 0.15rem 0.1rem 0.12rem rgba(0,0,0,0.05); */
   background: linear-gradient(to bottom, var(--Hue_Colour), black);
   overflow: hidden;
@@ -272,9 +278,9 @@
   transition: transform 0.2s;
 }
 
-#Saturation_Value_Selector:hover{
+/* #Saturation_Value_Selector:hover{
   transform: scale(1.1);
-}
+} */
 
 #Intensity_Field_Containers{
   display: grid;
@@ -282,7 +288,7 @@
   grid-template-columns: 1fr 2fr;
   grid-template-rows: repeat(3,1fr);
   position: absolute; 
-  top: 61%;
+  top: 60%;
   left: 24%;
   height: 31%;
   width: 21%;

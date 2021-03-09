@@ -13,15 +13,17 @@ html{
 
 body{
   margin: 0;
-  background-color: var(--Charcoal_Black);
+  height: 100%;
+  width: 100%;
+  background-color: var(--Canvas_Colour);
 }
 
 #Canvas{
   position: absolute;
   top: 0;
   left: 0;
-  height: 0;
-  width: 0;
+  height: 100%;
+  width: 100%;
   background-color: var(--Canvas_Colour);
 }
 
