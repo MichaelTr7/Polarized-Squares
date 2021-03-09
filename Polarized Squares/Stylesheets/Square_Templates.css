@@ -14,6 +14,23 @@
 }
 
 .Picture_Square{
+  position: relative;
+  --Scalar: 1;
+  --Margin: calc(var(--Scalar)*7%);
+  --Height: calc(75%);
+  --Width: calc(100% - 2*var(--Margin));
+  height: var(--Height);
+  width: var(--Width);
+  box-sizing: border-box;
+  /* border: 0.2rem solid gray; */
+  border-radius: calc(var(--Width)/80);
+  left: calc(50% - var(--Width)/2);
+  margin-top: var(--Margin);
+  background-color: gray;
+}
+
+.Drop_Zone{
+  display: none;
   position: absolute;
   --Scalar: 1;
   --Margin: calc(var(--Scalar)*7%);
@@ -26,20 +43,12 @@
   border-radius: calc(var(--Width)/80);
   left: calc(50% - var(--Width)/2);
   margin-top: var(--Margin);
-  background-color: gray;
+  background-color: rgba(0,0,0,0);
+  background-color: blue;
+  z-index: 100;
 }
 
-.Drop_Zone{
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  box-sizing: border-box;
-  border: 0.2rem solid gray;
-  background-color: rgba(0,0,0,0);
-  transition: border 0.1s;
-}
+
 
 .Modify_Handles{
   display: none;
@@ -88,20 +97,26 @@
 }
 
 .Add_Picture_Prompt{
-  display: flex;
+  display: block;
   justify-content: center;
   align-items: center;
   position: absolute;
-  --Height: 2rem;
-  --Width: 9rem;
   text-align: center;
-  font-size: 0.8rem;
-  font-family: sans-serif;
-  color: white;
+  --Scalar: 1;
+  --Height: 5rem;
+  --Width: 100%;
   height: var(--Height);
   width: var(--Width);
+  box-sizing: border-box;
+  /* border: 0.2rem solid gray; */
+  border-radius: calc(var(--Width)/80);
   top: calc(50% - var(--Height)/2);
   left: calc(50% - var(--Width)/2);
+  margin-top: var(--Margin);
+  background-color: rgba(0,0,0,0);
+  font-family: sans-serif;
+  font-size: 0.75rem;
+  color: white;
 }
 
 .Add_Picture_Prompt:hover{

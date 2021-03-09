@@ -40,6 +40,11 @@ window.onload = function(){
   document.addEventListener("mousemove",Rotating_Picture);
   document.getElementById('Canvas').addEventListener("click",Close_Modifier_Handles);
   document.body.addEventListener("dblclick",Show_Tools);
+  document.body.addEventListener('dragenter', Prevent_Default, false);
+  document.body.addEventListener('dragexit', Prevent_Default, false);
+  document.body.addEventListener('dragover', Prevent_Default, false);
+  document.body.addEventListener('drop',Prevent_Default, false);
+  
 }
 
 function Close_Modifier_Handles(){

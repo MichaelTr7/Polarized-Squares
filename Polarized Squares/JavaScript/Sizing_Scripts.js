@@ -16,56 +16,16 @@ function Add_Picture(){
   let New_Picture_Film = document.createElement('div');
   New_Picture_Film.classList.add('Polarized_Square');
   document.body.appendChild(New_Picture_Film);
-  let New_Picture = document.createElement('div');
+  let New_Picture = document.createElement('img');
   New_Picture.classList.add('Picture_Square');
   New_Picture_Film.appendChild(New_Picture);
   let Drop_Label = document.createElement('div');
   Drop_Label.classList.add('Add_Picture_Prompt');
   Drop_Label.innerHTML = "Drag and Drop Image<br>Into to Frame";
-  New_Picture.appendChild(Drop_Label);
+  // New_Picture_Film.appendChild(Drop_Label);
 
   let New_Drop_Zone = document.createElement('div');
   New_Drop_Zone.classList.add('Drop_Zone');
-  New_Picture.appendChild(New_Drop_Zone);
-
-  New_Drop_Zone.ondragenter = function(e){
-    let Canvas_Colour = window.getComputedStyle(document.getElementById('Canvas')).getPropertyValue('background-color');
-    New_Drop_Zone.style.borderColor = Canvas_Colour;
-    e.stopPropagation();
-    e.preventDefault();
-    return false;
-  }
-
-  New_Drop_Zone.ondragover = function(e){
-    e.stopPropagation();
-    e.preventDefault();
-    return false;
-  };
-
-  New_Drop_Zone.ondragleave = function(e){
-    New_Drop_Zone.style.borderColor = "gray";
-    e.stopPropagation();
-    e.preventDefault();
-    return false;
-  };
-
-  New_Drop_Zone.ondragend = function(e){
-    New_Drop_Zone.style.borderColor = "gray";
-    e.stopPropagation();
-    e.preventDefault();
-    return false;
-  };
-
-  New_Drop_Zone.ondrop = function(e){
-      e.stopPropagation();
-      e.preventDefault();
-      New_Drop_Zone.style.borderColor = "gray";
-      let File_Data = e.dataTransfer.files;
-      var imageUrl = e.dataTransfer.getData('url');
-       alert(imageUrl);
-      Insert_Image(File_Data);
-      return false;
-  };
   
   let Move_Handle = document.createElement('div');
   Move_Handle.classList.add('Move_Handle');
@@ -96,6 +56,14 @@ function Add_Picture(){
   New_Picture_Film.addEventListener("dblclick",Toggle_Controls);
   let Number_Of_Pictures = document.getElementsByClassName('Polarized_Square').length;
   New_Picture_Film.id = "Picture_Number_" + String(Number_Of_Pictures);
+  New_Picture.id = "Picture_Plane_" + String(Number_Of_Pictures);
+  // New_Picture_Film.appendChild(New_Drop_Zone);
+  
+  New_Picture.addEventListener('dragenter', Prevent_Default);
+  New_Picture.addEventListener('dragexit', Prevent_Default);
+  New_Picture.addEventListener('dragover', Prevent_Default);
+  New_Picture.addEventListener('drop',Dropped_Image);
+
 }
 
 function Toggle_Controls(){  
@@ -253,11 +221,38 @@ function Screenshot_Canvas(){
   Navigation_Bar.style.display = "none";
 
     // window.print();
-  
-
-
-
 }
 
+function Dropped_Image(evt) {
+  
+  console.log("Dropped");
+  evt.stopPropagation();
+  evt.preventDefault();
+           // Checking if data is empty
+  var Dropped_Files = evt.dataTransfer.files;
+  var Image_File = Dropped_Files ? evt.dataTransfer.files[0] : null;   
+  this.style.borderColor = "rgba(0,0,0,0)";
+  let Label = this.parentElement.children[1];
+  Label.style.color = "rgba(0,0,0,0)";
+  
+  if(Image_File){
+  getBase64FromFile(Image_File).then(base64 => {$(this)[0].src = base64;});
+  }
+}
+
+function getBase64FromFile(file) {
+let File_Reader_Promise = new Promise(resolve => {
+      var reader = new FileReader();
+      reader.onload = function(evt){resolve(evt.target.result);};
+      reader.readAsDataURL(file);
+  });
+  return File_Reader_Promise;
+};
+
+function Prevent_Default(evt) {
+  evt.stopPropagation();
+  evt.preventDefault();
+  return false;
+}
 
 
