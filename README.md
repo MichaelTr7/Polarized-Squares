@@ -1,4 +1,5 @@
 # Polarized-Squares
 
-
-<img src="./Images/Polarized Squares Preview.png">
+<p align="center">
+<img src="./Images/Polarized Squares Preview.png" width="700">
+</p>
