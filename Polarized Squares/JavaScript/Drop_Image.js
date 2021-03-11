@@ -8,7 +8,7 @@ function Dropped_Image(e) {
   Convert_To_Base_64(Image_File).then(Base_64_Representation => {$(this)[0].src = Base_64_Representation;
   // this.parentElement.style.backgroundImage = "url('" + String(Base_64_Representation) + "')";
   // this.classList.add('Backdrop_Blur');
-  this.parentElement.style.backgroundColor = "white";
+  this.parentElement.style.backgroundColor = "rgb(250,250,250)";
   });
   }
 }
