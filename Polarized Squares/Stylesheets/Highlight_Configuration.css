@@ -15,3 +15,12 @@ button{
   -khtml-user-select: none;
   -webkit-user-select: none;
 }
+
+input{
+  user-select: auto;
+  -moz-user-select: auto;
+  -khtml-user-select: auto;
+  -webkit-user-select: auto;
+}
+
+

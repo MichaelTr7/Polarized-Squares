@@ -1,13 +1,12 @@
 
 window.onload = function(){
-  
+
   // Setting canvas height 
   var Screen_Height = String(window.screen.height);
   var Screen_Width = String(window.screen.width);
   var Canvas = document.getElementById('Canvas');
   Canvas.style.height = Screen_Height + "px";
   Canvas.style.width = Screen_Width + "px";
-  
   Canvas.style.height = "100vh";
   Canvas.style.width = "100vw";
   
@@ -30,7 +29,6 @@ window.onload = function(){
   for(Index = 0; Index < Sample_Colour_Buttons.length; Index++){
     Sample_Colour_Buttons[Index].addEventListener("click",Sample_Colour_Chosen);
   }
-  
   document.getElementById('Add_Square_Button').addEventListener("click",Add_Picture);
   document.getElementById('Add_Text_Button').addEventListener("click",Add_Text_Box);
   document.getElementById('Screenshot_Button').addEventListener("click",Screenshot_Canvas);  
@@ -44,24 +42,67 @@ window.onload = function(){
   document.body.addEventListener('dragexit', Prevent_Default, false);
   document.body.addEventListener('dragover', Prevent_Default, false);
   document.body.addEventListener('drop',Prevent_Default, false);
+  document.addEventListener("keydown",Hot_Key_Pressed);
+}
+
+
+function Hot_Key_Pressed(e){
+let Key = e.key;
+console.log(Key);
+
+// Open left tools (left arrow)
+if(Key == 'ArrowLeft'){
+  document.getElementsByClassName('Toggle_Buttons')[0].click();
+}    
+// Open right tools (right arrow)
+if(Key == 'ArrowRight'){
+  document.getElementsByClassName('Toggle_Buttons')[1].click();
+}
+// Toggle both tools (alt + t)
+if(Key == '†'){
+  document.getElementsByClassName('Toggle_Buttons')[1].click();
+  document.getElementsByClassName('Toggle_Buttons')[0].click();
+}
+// Add picture (alt + p)
+if(Key == 'π'){
+    document.getElementById('Add_Square_Button').click();
+}
+// Screenshot (alt + s)
+if(Key == 'ß'){
+  Screenshot_Canvas();
+}  
+
+// Get out of screenshot mode (esc)
+if(Key == 'Escape'){
+  let Opacity = window.getComputedStyle(document.getElementsByClassName('Canvas_Colour_Panel')[0]).getPropertyValue('opacity');
+  if(Opacity == 0){
+    Screenshot_Canvas();
+  }
+  }
+
+if(Key == 'Backspace'){
+  if(document.getElementById(Focussed_Picture)){
+    document.getElementById(Focussed_Picture).remove();
+  }
+}  
+
+
+
+
   
 }
 
-function Close_Modifier_Handles(){
-  var Modifier_Handles = document.getElementsByClassName('Modify_Handles');
-  for(Index = 0; Index < Modifier_Handles.length; Index++){
-    Modifier_Handles[Index].style.display = "none";  
-  }
-}
 
-function Show_Tools(){
-  let Left_Tools = document.getElementsByClassName('Canvas_Colour_Panel')[0];
-  let Right_Tools = document.getElementsByClassName('Add_Panel')[0];
-  let Navigation_Bar = document.getElementById('Navigation_Bar');
-  Left_Tools.style.display = "block";
-  Right_Tools.style.display = "block";
-  Navigation_Bar.style.display = "block";
-}
+
+
+
+
+
+
+
+
+
+
 
 
 

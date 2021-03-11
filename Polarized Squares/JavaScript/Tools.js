@@ -203,6 +203,36 @@ function Push_Selected_Colour_To_Background(H,S,V){
 }
 
 
+function Close_Modifier_Handles(){
+  var Modifier_Handles = document.getElementsByClassName('Modify_Handles');
+  for(Index = 0; Index < Modifier_Handles.length; Index++){
+    Modifier_Handles[Index].style.display = "none";  
+  }
+}
+
+function Show_Tools(){
+  let Left_Tools = document.getElementsByClassName('Canvas_Colour_Panel')[0];
+  let Right_Tools = document.getElementsByClassName('Add_Panel')[0];
+  let Navigation_Bar = document.getElementById('Navigation_Bar');
+  Left_Tools.style.display = "block";
+  Right_Tools.style.display = "block";
+  Navigation_Bar.style.display = "block";
+}
+
+
+function Screenshot_Canvas(){
+  console.log("Screenshot Canvas");
+  let Left_Tools = document.getElementsByClassName('Canvas_Colour_Panel')[0];
+  let Right_Tools = document.getElementsByClassName('Add_Panel')[0];
+  let Navigation_Bar = document.getElementById('Navigation_Bar');
+  Left_Tools.classList.toggle('Toggle_Screenshot_Mode');
+  Right_Tools.classList.toggle('Toggle_Screenshot_Mode');
+  Navigation_Bar.classList.toggle('Toggle_Screenshot_Mode');
+}
+
+function Add_Text_Box(){
+  console.log("Add Text Box");
+}
 
 
 

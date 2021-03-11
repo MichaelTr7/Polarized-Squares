@@ -17,7 +17,7 @@
   border: none;
   background-color: var(--Charcoal_Black);
   /* box-shadow: 0 0.1rem 0.2rem 0.025rem rgba(0,0,0,0.1); */
-  transition: 1s;
+  transition: height 1s, width 1s, opacity;
   z-index: 50;
 }
 
@@ -399,6 +399,11 @@
 #Tools_SVG{
   transform: rotateZ(90deg);
 }
+
+.Toggle_Screenshot_Mode{
+  opacity: 0;
+}
+
 
 /* .Canvas_Colour_Panel{
   height: 20rem;
