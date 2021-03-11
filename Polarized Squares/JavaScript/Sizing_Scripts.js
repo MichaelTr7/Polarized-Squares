@@ -12,6 +12,10 @@ function Sample_Colour_Chosen(){
 }
 
 function Add_Picture(){
+  let Number_Of_Pictures = document.getElementsByClassName('Polarized_Square').length;
+  console.log(Number_Of_Pictures);
+  let Picture_Cap = 50;
+  if(Number_Of_Pictures <= Picture_Cap){
   let Canvas = document.getElementById('Canvas');
   let New_Picture_Film = document.createElement('div');
   New_Picture_Film.classList.add('Polarized_Square');
@@ -69,6 +73,7 @@ function Add_Picture(){
   // New_File_Select_Button.classList.add('Select_Button');
   // // New_Picture_Film.appendChild(New_Select_Button);
   // New_Picture_Film.appendChild(New_File_Select_Button);
+}
 }
 
 function Toggle_Controls(){  

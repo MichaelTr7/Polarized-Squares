@@ -43,12 +43,13 @@ window.onload = function(){
   document.body.addEventListener('dragover', Prevent_Default, false);
   document.body.addEventListener('drop',Prevent_Default, false);
   document.addEventListener("keydown",Hot_Key_Pressed);
+  
+  document.getElementById('Add_Square_Button').click();  
 }
 
 
 function Hot_Key_Pressed(e){
 let Key = e.key;
-console.log(Key);
 
 // Open left tools (left arrow)
 if(Key == 'ArrowLeft'){
