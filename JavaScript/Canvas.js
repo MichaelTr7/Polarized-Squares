@@ -45,6 +45,8 @@ window.onload = function(){
   document.addEventListener("keydown",Hot_Key_Pressed);
   
   document.getElementById('Add_Square_Button').click();  
+  document.getElementById('Hot_Key_Nav_Button').addEventListener("mouseenter",Show_Hot_Key_Tutorial);
+  document.getElementById('Hot_Key_Nav_Button').addEventListener("mouseleave",Hide_Hot_Key_Tutorial);
 }
 
 
@@ -85,21 +87,29 @@ if(Key == 'Backspace'){
   if(document.getElementById(Focussed_Picture)){
     document.getElementById(Focussed_Picture).remove();
   }
-}  
-
-
-
-
-  
+}    
 }
 
 
+function Show_Hot_Key_Tutorial(){
+  var Hot_Keys_Panel = document.getElementById('Hot_Keys_Panel');
+  Hot_Keys_Panel.classList.remove('Fade_In');
+  Hot_Keys_Panel.classList.remove('Fade_Out');
+  void Hot_Keys_Panel.offsetWidth;
+  document.getElementById('Hot_Keys_Panel').style.display = "grid";
+  Hot_Keys_Panel.classList.add('Fade_In');
+}
 
-
-
-
-
-
+function Hide_Hot_Key_Tutorial(){
+  var Hot_Keys_Panel = document.getElementById('Hot_Keys_Panel');
+  Hot_Keys_Panel.classList.remove('Fade_In');
+  Hot_Keys_Panel.classList.remove('Fade_Out');
+  void Hot_Keys_Panel.offsetWidth;
+  Hot_Keys_Panel.classList.add('Fade_Out');
+  setTimeout(function () {
+    document.getElementById('Hot_Keys_Panel').style.display = "none";
+  }, 200);
+}
 
 
 

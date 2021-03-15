@@ -1,0 +1,89 @@
+
+#Hot_Keys_Panel{
+  display: none;
+  grid-gap: 0.2rem;
+  grid-template-columns: 3.6fr 4fr 3.6fr 4fr;
+  position: fixed;
+  --Height: 10rem;
+  --Width: 25.5rem;
+  padding: 1rem 1rem 1rem 1rem;
+  height: var(--Height);
+  width: var(--Width);
+  top: calc(var(--Navigation_Bar_Height) + 0.3rem);
+  left: calc(50% - var(--Width)/2);
+  z-index: 100;
+  border-radius: 1.1rem;
+  background-color: var(--Charcoal_Black);
+}
+
+.Hot_Keys_Container{
+  display: grid;
+  --Gap: 0.2rem; 
+  grid-gap: var(--Gap);
+  grid-template-columns: repeat(3,1fr);
+  position: relative;
+  --Height: 2rem;
+  --Width: calc(3*var(--Height));
+  height: calc(var(--Height) - var(--Gap));
+  width: var(--Width);
+  top: calc(50% - var(--Height)/2 + var(--Gap)/2);
+  left: calc(50% - var(--Width)/2);
+}
+
+.Key_Caps:not(:nth-of-type(2)),.Special_Key_Caps{
+  border-radius: 0.2rem;
+  background-color: rgb(55,55,55);
+  box-shadow: 0.1rem 0.1rem 0.2rem 0rem rgba(0,0,0,0.2), inset 0.05rem 0.05rem 0rem 0rem rgba(255,255,255,0.2);  
+}
+
+.Key_Caps,.Special_Key_Caps,.Hot_Key_Descriptions{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: gray;
+  font-family: Helvetica, Arial;
+  font-size: 0.8rem;
+  cursor: default;
+  text-align: center;
+}
+
+.Special_Key_Caps{
+    width: 4rem;
+}
+
+.Hot_Key_Descriptions{
+  position: relative;
+  --Width: 80%;
+  width: var(--Width);
+  left: calc(50% - var(--Width)/2);
+  font-size: 0.7rem;
+}
+
+.Fade_In{
+  animation: Fade_In_Keyframes 0.2s linear forwards;
+}
+
+.Fade_Out{
+  animation: Fade_Out_Keyframes 0.2s linear forwards;
+}
+
+@keyframes Fade_In_Keyframes {
+  to{
+    opacity: 1;
+  }
+}
+
+@keyframes Fade_Out_Keyframes {
+  to{
+    opacity: 0;
+  }
+}
+
+
+
+
+
+
+
+
+
