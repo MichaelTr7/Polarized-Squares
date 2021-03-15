@@ -43,10 +43,11 @@ window.onload = function(){
   document.body.addEventListener('dragover', Prevent_Default, false);
   document.body.addEventListener('drop',Prevent_Default, false);
   document.addEventListener("keydown",Hot_Key_Pressed);
-  
   document.getElementById('Add_Square_Button').click();  
   document.getElementById('Hot_Key_Nav_Button').addEventListener("mouseenter",Show_Hot_Key_Tutorial);
   document.getElementById('Hot_Key_Nav_Button').addEventListener("mouseleave",Hide_Hot_Key_Tutorial);
+  document.getElementById('Developer_Nav_Button').addEventListener("mouseenter",Show_Developer_Panel);
+  document.getElementById('Developer_Nav_Button').addEventListener("mouseleave",Hide_Developer_Panel);
 }
 
 
@@ -90,7 +91,6 @@ if(Key == 'Backspace'){
 }    
 }
 
-
 function Show_Hot_Key_Tutorial(){
   var Hot_Keys_Panel = document.getElementById('Hot_Keys_Panel');
   Hot_Keys_Panel.classList.remove('Fade_In');
@@ -111,8 +111,25 @@ function Hide_Hot_Key_Tutorial(){
   }, 200);
 }
 
+function Show_Developer_Panel(){
+  var Developer_Panel = document.getElementById('Developer_Panel');
+  Developer_Panel.classList.remove('Fade_In');
+  Developer_Panel.classList.remove('Fade_Out');
+  void Developer_Panel.offsetWidth;
+  document.getElementById('Developer_Panel').style.display = "grid";
+  Hot_Keys_Panel.classList.add('Fade_In');
+}
 
-
+function Hide_Developer_Panel(){
+  var Developer_Panel = document.getElementById('Developer_Panel');
+  Developer_Panel.classList.remove('Fade_In');
+  Developer_Panel.classList.remove('Fade_Out');
+  void Developer_Panel.offsetWidth;
+  Developer_Panel.classList.add('Fade_Out');
+  setTimeout(function () {
+    document.getElementById('Developer_Panel').style.display = "none";
+  }, 200);
+}
 
 
 

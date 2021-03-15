@@ -1,5 +1,5 @@
 
-#Hot_Keys_Panel{
+#Hot_Keys_Panel,#Developer_Panel{
   display: none;
   grid-gap: 0.2rem;
   grid-template-columns: 3.6fr 4fr 3.6fr 4fr;
@@ -59,6 +59,33 @@
   font-size: 0.7rem;
 }
 
+#Developer_Panel{
+  display: none;
+  grid-template-columns: 1fr 2fr;
+  grid-template-rows: 1fr;
+}
+
+#Developer_Panel > div{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-family: Helvetica, Arial;
+  color: gray;
+  font-size: 0.7rem;
+}
+
+#Logo_Container{
+  position: relative;
+  --Size: 10rem;
+  height: var(--Size);
+  width: var(--Size);
+  top: calc(50% - var(--Size)/2);
+  left: calc(50% - var(--Size)/2);
+  background-color: rgb(55,55,55);
+  border-radius: 0.5rem;
+}
+
 .Fade_In{
   animation: Fade_In_Keyframes 0.2s linear forwards;
 }
@@ -78,6 +105,21 @@
     opacity: 0;
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
