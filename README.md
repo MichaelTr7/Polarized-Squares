@@ -5,6 +5,6 @@
 </p>
 
 
-<h3>Things to add:</h3><br>
+<h3>Things to add:</h3>
 • Finish colour picker<br>
 • Add text box functionality
