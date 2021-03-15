@@ -48,6 +48,13 @@ window.onload = function(){
   document.getElementById('Hot_Key_Nav_Button').addEventListener("mouseleave",Hide_Hot_Key_Tutorial);
   document.getElementById('Developer_Nav_Button').addEventListener("mouseenter",Show_Developer_Panel);
   document.getElementById('Developer_Nav_Button').addEventListener("mouseleave",Hide_Developer_Panel);
+  let Right_Tool_Buttons = document.getElementsByClassName('Right_Tool_Buttons');
+  for(Index = 0; Index < Right_Tool_Buttons.length; Index++){
+    Right_Tool_Buttons[Index].addEventListener("mouseenter",Show_Suggested_Hotkey);
+    Right_Tool_Buttons[Index].addEventListener("mouseleave",Hide_Suggested_Hotkey);
+  }
+  
+  
 }
 
 
@@ -64,8 +71,9 @@ if(Key == 'ArrowRight'){
 }
 // Toggle both tools (alt + t)
 if(Key == '†'){
-  document.getElementsByClassName('Toggle_Buttons')[1].click();
-  document.getElementsByClassName('Toggle_Buttons')[0].click();
+  // document.getElementsByClassName('Toggle_Buttons')[1].click();
+  // document.getElementsByClassName('Toggle_Buttons')[0].click();
+  Add_Text_Box();
 }
 // Add picture (alt + p)
 if(Key == 'π'){
@@ -132,11 +140,29 @@ function Hide_Developer_Panel(){
 }
 
 
+function Show_Suggested_Hotkey(){
+  let Button_Identifiers = ["Add_Square_Button","Add_Text_Button","Screenshot_Button"];
+  let Button_Index = Button_Identifiers.indexOf(this.id);
+  let Suggestion = document.getElementsByClassName('Hot_Key_Suggestions')[Button_Index];
+  Suggestion.classList.remove('Fade_In');
+  Suggestion.classList.remove('Fade_Out');
+  void Suggestion.offsetWidth;
+  Suggestion.style.display = "grid";
+  Suggestion.classList.add('Fade_In');
+}
 
-
-
-
-
+function Hide_Suggested_Hotkey(){
+  let Button_Identifiers = ["Add_Square_Button","Add_Text_Button","Screenshot_Button"];
+  let Button_Index = Button_Identifiers.indexOf(this.id);
+  let Suggestion = document.getElementsByClassName('Hot_Key_Suggestions')[Button_Index];
+  Suggestion.classList.remove('Fade_In');
+  Suggestion.classList.remove('Fade_Out');
+  void Suggestion.offsetWidth;
+  Suggestion.classList.add('Fade_Out');
+  setTimeout(function () {
+    Suggestion.style.display = "none";
+  }, 200);  
+}
 
 
 

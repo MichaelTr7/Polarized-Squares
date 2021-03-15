@@ -86,6 +86,57 @@
   border-radius: 0.5rem;
 }
 
+.Hot_Key_Suggestions{
+  display: none;
+  grid-template-columns: 1.2fr 1fr;
+  grid-template-rows: 1fr;
+  position: fixed;
+  --Padding: 0rem;
+  --Height: calc(4.5rem - 2*var(--Padding));
+  --Width: calc(12rem - 2*var(--Padding));
+  top: calc(100% - 5.5rem);
+  left: calc(100% - 19rem);
+  height: var(--Height);
+  width: var(--Width);
+  padding: var(--Padding);
+  background-color: var(--Charcoal_Black);
+  border-radius: 1rem;
+}
+
+.Shortkey_Containers{
+  position: relative;
+  display: grid;
+  --Height: 1.7rem;
+  --Width: calc(3*var(--Height));
+  height: var(--Height);
+  width: var(--Width);
+  top: calc(50% - var(--Height)/2);
+  left: calc(50% - var(--Width)/2);
+  grid-template-columns: repeat(3,1fr);
+}
+
+.Shortkeys,.Shortkey_Descriptors{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-family: Helvetica,Arial;
+  font-size: 1rem;
+  color: gray;
+}
+
+.Shortkey_Descriptors{
+  font-size: 0.7rem;
+  margin-left: -0.5rem;
+}
+
+
+.Shortkeys:not(:nth-of-type(2)){
+  border-radius: 0.2rem;
+  background-color: rgb(55,55,55);
+  box-shadow: 0.1rem 0.1rem 0.2rem 0rem rgba(0,0,0,0.2), inset 0.05rem 0.05rem 0rem 0rem rgba(255,255,255,0.2);   
+}
+
 .Fade_In{
   animation: Fade_In_Keyframes 0.2s linear forwards;
 }

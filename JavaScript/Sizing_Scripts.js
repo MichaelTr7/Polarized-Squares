@@ -13,7 +13,6 @@ function Sample_Colour_Chosen(){
 
 function Add_Picture(){
   let Number_Of_Pictures = document.getElementsByClassName('Polarized_Square').length;
-  console.log(Number_Of_Pictures);
   let Picture_Cap = 50;
   if(Number_Of_Pictures <= Picture_Cap){
   let Canvas = document.getElementById('Canvas');
